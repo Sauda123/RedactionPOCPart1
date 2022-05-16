@@ -1,0 +1,105 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CoordinatesJson" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ExtractionResults" Type="InArgument(p:ExtractionResult)" />
+    <x:Property Name="in_TargetDocument" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_QueueItem" Type="OutArgument(x:String)" />
+    <x:Property Name="out_dtJson" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,610.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CoordinatesJson_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="54">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CoordinatesJson" sap:VirtualizedContainerService.HintSize="375.2,406.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Out_Json" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Creating Data Table of Coordinates&quot;]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="DataTable dt = new DataTable();&#xA;dt.Columns.Add(&quot;FieldName&quot;);&#xA;dt.Columns.Add(&quot;FieldGroup&quot;);&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employernameaddzip1&quot;, &quot;employeraddress&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employernameaddzip2&quot;, &quot;employeraddress&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employernameaddzip3&quot;, &quot;employeraddress&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employernameaddzip4&quot;, &quot;employeraddress&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;state1&quot;, &quot;state&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;state2&quot;, &quot;state&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;state3&quot;, &quot;state&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;state4&quot;, &quot;state&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeenameaddzip1&quot;, &quot;employeename&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeenameaddzip2&quot;, &quot;employeename&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeenameaddzip3&quot;, &quot;employeename&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeenameaddzip4&quot;, &quot;employeename&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employerstateidnum1&quot;, &quot;employerstate&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employerstateidnum2&quot;, &quot;employerstate&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employerstateidnum3&quot;, &quot;employerstate&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employerstateidnum4&quot;, &quot;employerstate&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ein1&quot;, &quot;ein&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ein2&quot;, &quot;ein&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ein3&quot;, &quot;ein&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ein4&quot;, &quot;ein&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ombnum1&quot;, &quot;omb&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ombnum2&quot;, &quot;omb&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ombnum3&quot;, &quot;omb&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;ombnum4&quot;, &quot;omb&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeessn1&quot;, &quot;ssn&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeessn2&quot;, &quot;ssn&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeessn3&quot;, &quot;ssn&quot; });&#xA;&#xA;&#xA;&#xA;dt.Rows.Add(new object[] { &quot;employeessn4&quot;, &quot;ssn&quot; });&#xA;&#xA;&#xA;&#xA;DataTable dtJson = new DataTable();&#xA;dtJson.Columns.Add(&quot;FieldName&quot;);&#xA;dtJson.Columns.Add(&quot;FieldGroup&quot;);&#xA;dtJson.Columns.Add(&quot;FieldText&quot;);&#xA;dtJson.Columns.Add(&quot;Confidence&quot;, typeof(double));&#xA;dtJson.Columns.Add(&quot;Missing&quot;);&#xA;dtJson.Columns.Add(&quot;Boxes&quot;, typeof(List&lt;List&lt;double&gt;&gt;));&#xA;List&lt;List&lt;double&gt;&gt; lst1;&#xA;List&lt;double&gt; lst2;&#xA;&#xA;dynamic dynJson = JsonConvert.DeserializeObject(json);&#xA;foreach (var item in dynJson.ResultsDocument.Fields)&#xA;{&#xA;lst1 = new List&lt;List&lt;double&gt;&gt;();&#xA;Newtonsoft.Json.Linq.JArray response;&#xA;if (item.IsMissing == false)&#xA;{&#xA;response = Newtonsoft.Json.Linq.JArray.Parse(Newtonsoft.Json.Linq.JObject.Parse(item.Values[0].Reference.Tokens[0].ToString()).SelectToken(&quot;Boxes&quot;, false).ToString());&#xA;foreach (var i in response)&#xA;{&#xA;lst2 = new List&lt;double&gt;();&#xA;lst2.AddRange(i.ToObject&lt;List&lt;double&gt;&gt;());&#xA;lst1.Add(lst2);&#xA;}&#xA;}&#xA;else&#xA;{&#xA;}&#xA;DataRow dr = dtJson.NewRow();&#xA;dr[&quot;FieldName&quot;] = item.FieldName;&#xA;dr[&quot;FieldGroup&quot;] = dt.Select(&quot;FieldName='&quot; + item.FieldName + &quot;'&quot;)[0][&quot;FieldGroup&quot;].ToString();&#xA;dr[&quot;FieldText&quot;] = item.IsMissing == false ? item.Values[0].Value.ToString() : &quot;&quot;;&#xA;dr[&quot;Confidence&quot;] = item.IsMissing == false ? item.Values[0].Confidence : 0;&#xA;dr[&quot;Missing&quot;] = item.IsMissing;&#xA;dr[&quot;Boxes&quot;] = lst1;&#xA;dtJson.Rows.Add(dr);&#xA;}&#xA;&#xA;foreach (DataRow dr in dtJson.Select(&quot;Missing=true&quot;))&#xA;{&#xA;DataRow drs = dtJson.Select(&quot;FieldGroup='&quot; + dr[&quot;FieldGroup&quot;] + &quot;'&quot;).OrderByDescending(r =&gt; r.Field&lt;double&gt;(&quot;Confidence&quot;)).FirstOrDefault();&#xA;if (drs != null &amp;&amp; !string.IsNullOrEmpty(drs[&quot;FieldText&quot;].ToString())) {&#xA;&#xA;&#xA;&#xA;dr[&quot;FieldText&quot;] = drs[&quot;FieldText&quot;].ToString();&#xA;}&#xA;}&#xA;&#xA;_dtJson = dtJson;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="json">[in_ExtractionResults.Serialize()]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="_dtJson">[out_dtJson]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="_json">[Out_Json]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+  </Sequence>
+</Activity>
